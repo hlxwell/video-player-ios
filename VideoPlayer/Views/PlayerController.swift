@@ -126,11 +126,19 @@ class PlayerController: UIView {
 
     private func addTimeObserver() -> Void {
         let updateInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-        _player?.addPeriodicTimeObserver(forInterval: updateInterval, queue: DispatchQueue.main, using: { [weak self] time in
-            guard let currentItem = self?._player?.currentItem else { return }
-            let currentTime = Int((self?._player?.currentTime().seconds)! * 1000).convertToDisplayTime()
-            let duration = Int(currentItem.duration.seconds * 1000).convertToDisplayTime()
-            self?.durationLabel.text = String(format: "%@ / %@", currentTime, duration)
-        })
+        _player?.addPeriodicTimeObserver(
+            forInterval: updateInterval,
+            queue: DispatchQueue.main,
+            using: {
+                [weak self] time in
+                guard let currentItem = self?._player?.currentItem else { return }
+                let currentTime = Int((self?._player?.currentTime().seconds)! * 1000).convertToDisplayTime()
+                var duration: String = "00:00" // Default Value
+                if currentItem.duration.seconds > 0 {
+                    duration = Int(currentItem.duration.seconds * 1000).convertToDisplayTime()
+                }
+                self?.durationLabel.text = String(format: "%@ / %@", currentTime, duration)
+            }
+        )
     }
 }
