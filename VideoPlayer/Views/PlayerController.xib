@@ -27,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tN-NK-g7k">
-                            <rect key="frame" x="220.33333333333334" y="179" width="55.333333333333343" height="55"/>
+                            <rect key="frame" x="207" y="165.33333333333334" width="82.666666666666686" height="82.333333333333343"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="5tN-NK-g7k" secondAttribute="height" multiplier="1:1" id="KTM-7c-09c"/>
                             </constraints>
@@ -62,7 +62,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZn-Wv-rGg">
-                            <rect key="frame" x="460.33333333333331" y="179" width="55.333333333333314" height="55"/>
+                            <rect key="frame" x="447" y="165.33333333333334" width="82.666666666666629" height="82.333333333333343"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="IZn-Wv-rGg" secondAttribute="height" multiplier="1:1" id="TR6-RF-TD5"/>
                             </constraints>
@@ -111,8 +111,8 @@
                         <constraint firstItem="fuq-o6-sVB" firstAttribute="leading" secondItem="2WE-Ct-TnF" secondAttribute="leading" constant="10" id="VM8-Ro-Kgc"/>
                         <constraint firstItem="fnz-jJ-2cB" firstAttribute="centerY" secondItem="2WE-Ct-TnF" secondAttribute="centerY" id="epP-xL-wki"/>
                         <constraint firstAttribute="bottom" secondItem="Nsk-NE-4nr" secondAttribute="bottom" constant="10" id="k81-Xo-as1"/>
-                        <constraint firstItem="5tN-NK-g7k" firstAttribute="width" secondItem="2WE-Ct-TnF" secondAttribute="height" multiplier="10:75" id="qI2-00-EfK"/>
-                        <constraint firstItem="IZn-Wv-rGg" firstAttribute="width" secondItem="2WE-Ct-TnF" secondAttribute="height" multiplier="10:75" id="vtP-Ht-YuU"/>
+                        <constraint firstItem="5tN-NK-g7k" firstAttribute="width" secondItem="2WE-Ct-TnF" secondAttribute="height" multiplier="5:25" id="qI2-00-EfK"/>
+                        <constraint firstItem="IZn-Wv-rGg" firstAttribute="width" secondItem="2WE-Ct-TnF" secondAttribute="height" multiplier="5:25" id="vtP-Ht-YuU"/>
                         <constraint firstItem="pIR-Z5-9r2" firstAttribute="width" secondItem="2WE-Ct-TnF" secondAttribute="width" constant="-20" id="wiI-G4-e8r"/>
                     </constraints>
                     <connections>
@@ -132,10 +132,10 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="2WE-Ct-TnF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="IqJ-kt-ACq"/>
+                <constraint firstItem="2WE-Ct-TnF" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="DoS-66-9Er"/>
+                <constraint firstItem="2WE-Ct-TnF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IqJ-kt-ACq"/>
+                <constraint firstItem="2WE-Ct-TnF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Md7-Y0-aLG"/>
                 <constraint firstItem="a4L-46-Bze" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="QhZ-ls-7Mu"/>
-                <constraint firstAttribute="bottom" secondItem="2WE-Ct-TnF" secondAttribute="bottom" id="V1V-tO-x46"/>
-                <constraint firstItem="2WE-Ct-TnF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="fjG-uv-fD3"/>
                 <constraint firstItem="a4L-46-Bze" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="wE5-wc-ZsR"/>
                 <constraint firstAttribute="trailing" secondItem="2WE-Ct-TnF" secondAttribute="trailing" id="ynf-cp-VsM"/>
             </constraints>

@@ -107,9 +107,11 @@ class PlayerController: UIView {
     public func updateInterfaceForOrientation() -> Void {
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             titleLabel.alpha = 1
+            closeButton.isHidden = true
             maxMinButton.setImage(UIImage(named: "NormalScreenButton"), for: .normal)
         } else {
             titleLabel.alpha = 0
+            closeButton.isHidden = false
             maxMinButton.setImage(UIImage(named: "FullScreenButton"), for: .normal)
         }
     }
@@ -121,7 +123,7 @@ class PlayerController: UIView {
         let currentTime = (_player?.currentTime().seconds)!
         progressSlider.value = Float(currentTime / duration)
     }
-    
+
     private func addTimeObserver() -> Void {
         let updateInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         _player?.addPeriodicTimeObserver(forInterval: updateInterval, queue: DispatchQueue.main, using: { [weak self] time in
