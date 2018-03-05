@@ -76,6 +76,7 @@ extension VideoListViewController {
         playerViewController.videoTitle = video.title
         playerViewController.videoDesc = video.description
         playerViewController.videoAuthor = video.presenterName // TODO rename all to presenter
+        playerViewController.videoCoverUrl = video.thumbnailUrl
 
         self.navigationController?.pushViewController(playerViewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true) // deselect once user tapped.

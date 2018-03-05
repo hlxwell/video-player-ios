@@ -17,6 +17,7 @@ class PlayerController: UIView {
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var maxMinButton: UIButton!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var coverImage: UIImageView!
 
     private weak var _player: AVPlayer?
 

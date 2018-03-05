@@ -8,12 +8,14 @@
 
 import UIKit
 import AVFoundation
+import Kingfisher
 
 class PlayerViewController: UIViewController {
     var videoUrl: String!
     var videoTitle: String!
     var videoDesc: String!
     var videoAuthor: String!
+    var videoCoverUrl: String!
 
     private var _player: AVPlayer!
     private var _playerLayer: AVPlayerLayer!
@@ -30,6 +32,7 @@ class PlayerViewController: UIViewController {
         // Pass player to player controller
         _playerController.player = _player
         _playerController.titleLabel.text = videoTitle
+        _playerController.coverImage.kf.setImage(with: URL(string: videoCoverUrl))
     }
 
     override func viewDidAppear(_ animated: Bool) {

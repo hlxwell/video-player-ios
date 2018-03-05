@@ -26,6 +26,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2WE-Ct-TnF">
                     <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="th2-hb-eSl">
+                            <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tN-NK-g7k">
                             <rect key="frame" x="220.33333333333334" y="179" width="55.333333333333343" height="55"/>
                             <constraints>
@@ -99,8 +102,11 @@
                         <constraint firstItem="fnz-jJ-2cB" firstAttribute="width" secondItem="2WE-Ct-TnF" secondAttribute="height" multiplier="6:25" id="1uG-kb-zO1"/>
                         <constraint firstItem="RdE-4V-JCi" firstAttribute="width" secondItem="2WE-Ct-TnF" secondAttribute="width" constant="-20" id="C01-aQ-AMy"/>
                         <constraint firstItem="5tN-NK-g7k" firstAttribute="centerY" secondItem="2WE-Ct-TnF" secondAttribute="centerY" id="Gal-aC-LJF"/>
+                        <constraint firstItem="th2-hb-eSl" firstAttribute="top" secondItem="2WE-Ct-TnF" secondAttribute="top" id="GyJ-TX-2Sz"/>
                         <constraint firstAttribute="bottom" secondItem="RdE-4V-JCi" secondAttribute="bottom" constant="30" id="IoQ-eI-Ev0"/>
                         <constraint firstItem="RdE-4V-JCi" firstAttribute="leading" secondItem="2WE-Ct-TnF" secondAttribute="leading" constant="10" id="L0u-cv-TsK"/>
+                        <constraint firstAttribute="bottom" secondItem="th2-hb-eSl" secondAttribute="bottom" id="LKi-OQ-uXM"/>
+                        <constraint firstItem="th2-hb-eSl" firstAttribute="leading" secondItem="2WE-Ct-TnF" secondAttribute="leading" id="Ljl-6k-9u5"/>
                         <constraint firstItem="fnz-jJ-2cB" firstAttribute="centerX" secondItem="2WE-Ct-TnF" secondAttribute="centerX" id="MCm-3V-gNR"/>
                         <constraint firstItem="IZn-Wv-rGg" firstAttribute="centerY" secondItem="2WE-Ct-TnF" secondAttribute="centerY" id="Mzh-Kg-98H"/>
                         <constraint firstItem="IZn-Wv-rGg" firstAttribute="centerX" secondItem="2WE-Ct-TnF" secondAttribute="centerX" constant="120" id="QKR-6z-rtz"/>
@@ -109,6 +115,7 @@
                         <constraint firstItem="5tN-NK-g7k" firstAttribute="centerX" secondItem="2WE-Ct-TnF" secondAttribute="centerX" constant="-120" id="U9w-NA-P6f"/>
                         <constraint firstItem="pIR-Z5-9r2" firstAttribute="top" secondItem="2WE-Ct-TnF" secondAttribute="top" constant="10" id="Uoa-Qz-71c"/>
                         <constraint firstItem="fuq-o6-sVB" firstAttribute="leading" secondItem="2WE-Ct-TnF" secondAttribute="leading" constant="10" id="VM8-Ro-Kgc"/>
+                        <constraint firstAttribute="trailing" secondItem="th2-hb-eSl" secondAttribute="trailing" id="dCc-Kp-3g9"/>
                         <constraint firstItem="fnz-jJ-2cB" firstAttribute="centerY" secondItem="2WE-Ct-TnF" secondAttribute="centerY" id="epP-xL-wki"/>
                         <constraint firstAttribute="bottom" secondItem="Nsk-NE-4nr" secondAttribute="bottom" constant="10" id="k81-Xo-as1"/>
                         <constraint firstItem="5tN-NK-g7k" firstAttribute="width" secondItem="2WE-Ct-TnF" secondAttribute="height" multiplier="10:75" id="qI2-00-EfK"/>
@@ -128,6 +135,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="coverImage" destination="th2-hb-eSl" id="vZl-zQ-bAg"/>
                 <outlet property="durationLabel" destination="fuq-o6-sVB" id="GwF-AT-Gcu"/>
                 <outlet property="maxMinButton" destination="Nsk-NE-4nr" id="u7S-hs-daH"/>
                 <outlet property="playAndPauseButton" destination="fnz-jJ-2cB" id="Eep-88-Lps"/>
