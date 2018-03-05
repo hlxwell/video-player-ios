@@ -14,6 +14,10 @@ extension Int {
         let minutes = self / 1000 % 3600 / 60
         let seconds = self / 1000 % 60
         
+        if hours == 0 {
+            return String(format: "%d:%02d", minutes, seconds)
+        }
+
         return String(format: "%d:%02d:%02d", hours, minutes, seconds)
     }
 }
