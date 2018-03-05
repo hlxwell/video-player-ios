@@ -1,0 +1,3 @@
+github "onevcat/Kingfisher" ~> 3.0
+github "Anviking/Decodable" "swift-4"
+github "lkzhao/Hero"
