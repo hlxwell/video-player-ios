@@ -42,13 +42,13 @@ class PlayerController: UIView {
 
     @IBAction func fullscreen(_ sender: Any) {
         let orientation: Int
-        
+
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             orientation = UIInterfaceOrientation.portrait.rawValue
         } else {
             orientation = UIInterfaceOrientation.landscapeLeft.rawValue
         }
-
+        updateInterfaceForOrientation()
         UIDevice.current.setValue(orientation, forKey: "orientation")
     }
 
@@ -89,9 +89,20 @@ class PlayerController: UIView {
             self.removeFromSuperview()
         }
     }
-    
-    // Private Methods -----------------------------------------------------
 
+    // Change interface according to different orientation.
+    public func updateInterfaceForOrientation() -> Void {
+        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+            titleLabel.alpha = 1
+            maxMinButton.setImage(UIImage(named: "NormalScreenButton"), for: .normal)
+        } else {
+            titleLabel.alpha = 0
+            maxMinButton.setImage(UIImage(named: "FullScreenButton"), for: .normal)
+        }
+    }
+
+    // Private Methods -----------------------------------------------------
+    
     private func updateProgressBar() -> Void {
         guard let duration = _player?.currentItem?.duration.seconds else { return }
         let currentTime = (_player?.currentTime().seconds)!

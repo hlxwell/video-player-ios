@@ -54,7 +54,7 @@
                                 <constraint firstAttribute="height" constant="20" id="VJT-uZ-LaN"/>
                                 <constraint firstAttribute="width" constant="20" id="jZm-Bk-4mQ"/>
                             </constraints>
-                            <state key="normal" image="NormalScreenButton">
+                            <state key="normal" image="FullScreenButton">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
@@ -71,7 +71,7 @@
                                 <action selector="forward:" destination="iN0-l3-epB" eventType="touchUpInside" id="yqu-VJ-wfI"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G12 Standard Level English&lt;Syntax&gt; Trial Ver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIR-Z5-9r2">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G12 Standard Level English&lt;Syntax&gt; Trial Ver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIR-Z5-9r2">
                             <rect key="frame" x="10" y="10.000000000000002" width="716" height="19.666666666666671"/>
                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -142,7 +142,7 @@
     </objects>
     <resources>
         <image name="ForwardButton" width="170" height="170"/>
-        <image name="NormalScreenButton" width="42" height="42"/>
+        <image name="FullScreenButton" width="42" height="42"/>
         <image name="PlayButton" width="170" height="170"/>
         <image name="RewindButton" width="170" height="170"/>
     </resources>

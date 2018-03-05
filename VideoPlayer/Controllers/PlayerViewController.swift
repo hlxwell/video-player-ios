@@ -43,6 +43,7 @@ class PlayerViewController: UIViewController {
         _playerView.frame = CGRect(x: 0, y: 0, width: videoFrame.width, height: videoFrame.height + videoFrame.maxY)
         _playerController.frame = videoFrame
         _videoInfoView.frame = getScrollViewFrame()
+        _playerController.updateInterfaceForOrientation()
 
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             self.navigationController?.isNavigationBarHidden = true
