@@ -86,7 +86,7 @@ class PlayerController: UIView {
             playAndPauseButton.setImage(UIImage(named: "PauseButton"), for: .normal)
             
             // Hide player controller after 1 seconds
-            UIView.animate(withDuration: 0.5, delay: 1, options: UIViewAnimationOptions.showHideTransitionViews, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0.5, options: UIViewAnimationOptions.showHideTransitionViews, animations: {
                 self.alpha = 0
             }, completion: { (isCompleted) in
                 self.removeFromSuperview()
