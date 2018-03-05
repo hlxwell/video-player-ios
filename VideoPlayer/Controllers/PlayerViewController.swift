@@ -32,7 +32,7 @@ class PlayerViewController: UIViewController {
         // Pass player to player controller
         _playerController.player = _player
         _playerController.titleLabel.text = videoTitle
-        _playerController.coverImage.kf.setImage(with: URL(string: videoCoverUrl))
+        _playerController.parentViewController = self
     }
 
     override func viewDidAppear(_ animated: Bool) {

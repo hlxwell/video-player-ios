@@ -17,8 +17,9 @@ class PlayerController: UIView {
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var maxMinButton: UIButton!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet weak var closeButton: UIButton!
 
+    public weak var parentViewController: PlayerViewController!
     private weak var _player: AVPlayer?
 
     var player: AVPlayer {
@@ -32,6 +33,10 @@ class PlayerController: UIView {
     }
 
     override func awakeFromNib() {
+    }
+
+    @IBAction func close(_ sender: Any) {
+        parentViewController.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func progressChanged(_ sender: UISlider) {

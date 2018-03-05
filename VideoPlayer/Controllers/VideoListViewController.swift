@@ -77,19 +77,21 @@ extension VideoListViewController {
         playerViewController.videoDesc = video.description
         playerViewController.videoAuthor = video.presenterName // TODO rename all to presenter
         playerViewController.videoCoverUrl = video.thumbnailUrl
+        
+        playerViewController.transitioningDelegate = self
+        present(playerViewController, animated: true)
 
-        self.navigationController?.pushViewController(playerViewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true) // deselect once user tapped.
     }
 }
 
-//extension VideoListViewController: UINavigationControllerDelegate {
-//    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//
-//    }
-//
-//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//
-//    }
-//}
+extension VideoListViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return ZoomInTransition()
+    }
+
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return ZoomOutTransition()
+    }
+}
 
