@@ -1,0 +1,118 @@
+//
+//  PlayerController.swift
+//  VideoPlayer
+//
+//  Created by Michael He on 2018/02/27.
+//  Copyright © 2018 Michael He. All rights reserved.
+//
+
+import UIKit
+import AVFoundation
+
+class PlayerViewController: UIViewController {
+    var videoUrl: String!
+    var videoTitle: String!
+    var videoDesc: String!
+    var videoAuthor: String!
+
+    private var _player: AVPlayer!
+    private var _playerLayer: AVPlayerLayer!
+    private var _playerView: UIView!
+    private var _playerController: PlayerController!
+    private var _videoInfoView: VideoInfo!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.white
+        setupPlayerViews()
+        setupVideoInfo()
+
+        // Pass player to player controller
+        _playerController.player = _player
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        _playerLayer.frame = getProperPlayerFrame()
+        _playerController.frame = getProperPlayerFrame()
+        _videoInfoView.frame = getScrollViewFrame()
+
+        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+            self.navigationController?.isNavigationBarHidden = true
+        } else {
+            self.navigationController?.isNavigationBarHidden = false
+        }
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        return UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight
+    }
+
+    // Private Methods --------------------------------------------------------
+
+    private func setupPlayerViews() -> Void {
+        // Add player view
+        let playerItem = CachingPlayerItem(url: URL(string: videoUrl)!)
+        _player = AVPlayer(playerItem: playerItem)
+        _playerLayer = AVPlayerLayer(player: _player)
+        _playerLayer.videoGravity = .resize
+        _playerLayer.frame = getProperPlayerFrame()
+        _playerLayer.backgroundColor = UIColor.black.cgColor
+        _playerView = UIView()
+        _playerView.layer.addSublayer(_playerLayer)
+        view.addSubview(_playerView)
+        
+        _playerController = PlayerController.loadFromNibNamed(nibNamed: "PlayerController") as! PlayerController
+        _playerController.frame = getProperPlayerFrame()
+        view.addSubview(_playerController) // on top of the player
+    }
+
+    private func setupVideoInfo() -> Void {
+        _videoInfoView = VideoInfo.loadFromNibNamed(nibNamed: "VideoInfo") as! VideoInfo
+        _videoInfoView.frame = getScrollViewFrame()
+        _videoInfoView.titleLabel.text = videoTitle
+        _videoInfoView.authorLabel.text = videoAuthor
+        _videoInfoView.descLabel.text = videoDesc
+        view.addSubview(_videoInfoView)
+    }
+
+    // ScrollView height = screen height - (video height + statusbar height + navbar height)
+    private func getScrollViewFrame() -> CGRect {
+        let screenBounds = UIScreen.main.bounds
+        let videoHeight = screenBounds.width / CGFloat(Constants.videoPlayerRatio)
+        var viewHeight: CGFloat = CGFloat(0)
+        var y: CGFloat = CGFloat(0)
+
+        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+            y = CGFloat(screenBounds.height)
+        } else {
+            y = (self.navigationController?.navigationBar.frame.size.height)!
+            y += UIApplication.shared.statusBarFrame.size.height
+            y += videoHeight
+
+            viewHeight = screenBounds.height - y
+        }
+
+        return CGRect(x: 0, y: y, width: screenBounds.width, height: viewHeight)
+    }
+
+    private func getProperPlayerFrame() -> CGRect {
+        let screenBounds = UIScreen.main.bounds
+        let videoHeight = screenBounds.width / CGFloat(Constants.videoPlayerRatio)
+        var y: CGFloat = CGFloat(0)
+
+        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+            y = CGFloat((screenBounds.height - videoHeight) / 2)
+        } else {
+            y = (self.navigationController?.navigationBar.frame.size.height)!
+            y += UIApplication.shared.statusBarFrame.size.height
+        }
+
+        return CGRect(x: 0, y: y, width: screenBounds.width, height: videoHeight)
+    }
+}
+
