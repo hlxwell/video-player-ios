@@ -18,6 +18,7 @@
 		A51EF50620450CCE00F712DA /* VideoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A51EF50520450CCE00F712DA /* VideoListCell.xib */; };
 		A51EF50820450D3200F712DA /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EF50720450D3200F712DA /* VideoListCell.swift */; };
 		A524DAFF204D06860006B6E4 /* AVPlayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A524DAFE204D06860006B6E4 /* AVPlayerExtension.swift */; };
+		A524DB06204D770C0006B6E4 /* ZoomInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A524DB05204D770C0006B6E4 /* ZoomInTransition.swift */; };
 		A55BF4DB204534F200F41D4F /* Decodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55BF4D7204534ED00F41D4F /* Decodable.framework */; };
 		A55BF4DC204534F200F41D4F /* Decodable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A55BF4D7204534ED00F41D4F /* Decodable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A55BF4DD204534F200F41D4F /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55BF4D8204534ED00F41D4F /* Kingfisher.framework */; };
@@ -77,6 +78,7 @@
 		A524DAFE204D06860006B6E4 /* AVPlayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerExtension.swift; sourceTree = "<group>"; };
 		A524DB00204D095B0006B6E4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A524DB01204D60B70006B6E4 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = SOURCE_ROOT; };
+		A524DB05204D770C0006B6E4 /* ZoomInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInTransition.swift; sourceTree = "<group>"; };
 		A55BF4D7204534ED00F41D4F /* Decodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Decodable.framework; path = Carthage/Build/iOS/Decodable.framework; sourceTree = SOURCE_ROOT; };
 		A55BF4D8204534ED00F41D4F /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = SOURCE_ROOT; };
 		A55BF4E220453FBC00F41D4F /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			children = (
 				A55BF4ED2046BB2300F41D4F /* CachingPlayerItem.swift */,
 				A585430620498A130044AFE9 /* ZoomOutTransition.swift */,
+				A524DB05204D770C0006B6E4 /* ZoomInTransition.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				A55BF4F22047A0FD00F41D4F /* PlayerController.swift in Sources */,
 				A51EF50820450D3200F712DA /* VideoListCell.swift in Sources */,
 				A55BF4EE2046BB2300F41D4F /* CachingPlayerItem.swift in Sources */,
+				A524DB06204D770C0006B6E4 /* ZoomInTransition.swift in Sources */,
 				A51EF4FD2044E8D800F712DA /* PlayerViewController.swift in Sources */,
 				A51EF4FF2044E8FE00F712DA /* VideoListViewController.swift in Sources */,
 				A55BF4F4204833EE00F41D4F /* VideoInfo.swift in Sources */,
