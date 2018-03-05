@@ -81,6 +81,7 @@ class PlayerViewController: UIViewController {
         _playerView.addGestureRecognizer(tapRecognizer)        
         _playerController = PlayerController.loadFromNibNamed(nibNamed: "PlayerController") as! PlayerController
         _playerController.frame = getProperPlayerFrame()
+        view.addSubview(_playerController)
     }
     
     private func setupVideoInfo() -> Void {
