@@ -105,17 +105,15 @@ class PlayerViewController: UIViewController {
     // ScrollView height = screen height - (video height + statusbar height + navbar height)
     private func getScrollViewFrame() -> CGRect {
         let screenBounds = UIScreen.main.bounds
-        let videoHeight = screenBounds.width / CGFloat(Constants.videoPlayerRatio)
         var viewHeight: CGFloat = CGFloat(0)
         var y: CGFloat = CGFloat(0)
+        let height = screenBounds.width / CGFloat(Constants.videoPlayerRatio)
 
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
-            y = CGFloat(screenBounds.height)
+            y = CGFloat(screenBounds.height) // off the screen, hide the video info.
         } else {
-            y = getNavbarHeight()
-            y += UIApplication.shared.statusBarFrame.size.height
-            y += videoHeight
-
+            y = UIApplication.shared.statusBarFrame.size.height
+            y += height
             viewHeight = screenBounds.height - y
         }
 
@@ -124,25 +122,21 @@ class PlayerViewController: UIViewController {
 
     private func getProperPlayerFrame() -> CGRect {
         let screenBounds = UIScreen.main.bounds
-        let videoHeight = screenBounds.width / CGFloat(Constants.videoPlayerRatio)
+        var x: CGFloat = CGFloat(0)
         var y: CGFloat = CGFloat(0)
+        var width: CGFloat = screenBounds.width
+        var height = screenBounds.width / CGFloat(Constants.videoPlayerRatio)
 
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
-            y = CGFloat((screenBounds.height - videoHeight) / 2)
+            if UIDevice.current.isX() {
+                width = screenBounds.height * CGFloat(Constants.videoPlayerRatio)
+                height = screenBounds.height
+                x = CGFloat(screenBounds.width - width) / 2
+            }
         } else {
-            y = getNavbarHeight()
-            y += UIApplication.shared.statusBarFrame.size.height
+            y = CGFloat(UIScreen.main.statusBarHeight())
         }
 
-        return CGRect(x: 0, y: y, width: screenBounds.width, height: videoHeight)
-    }
-
-    private func getNavbarHeight() -> CGFloat {
-        guard (self.navigationController != nil) else {
-            return CGFloat(0)
-        }
-        return self.navigationController!.navigationBar.frame.size.height
+        return CGRect(x: x, y: y, width: width, height: height)
     }
 }
-
-
