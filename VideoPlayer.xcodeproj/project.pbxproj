@@ -18,8 +18,6 @@
 		A51EF50620450CCE00F712DA /* VideoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A51EF50520450CCE00F712DA /* VideoListCell.xib */; };
 		A51EF50820450D3200F712DA /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EF50720450D3200F712DA /* VideoListCell.swift */; };
 		A524DAFF204D06860006B6E4 /* AVPlayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A524DAFE204D06860006B6E4 /* AVPlayerExtension.swift */; };
-		A55BF4D9204534ED00F41D4F /* Decodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55BF4D7204534ED00F41D4F /* Decodable.framework */; };
-		A55BF4DA204534ED00F41D4F /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55BF4D8204534ED00F41D4F /* Kingfisher.framework */; };
 		A55BF4DB204534F200F41D4F /* Decodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55BF4D7204534ED00F41D4F /* Decodable.framework */; };
 		A55BF4DC204534F200F41D4F /* Decodable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A55BF4D7204534ED00F41D4F /* Decodable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A55BF4DD204534F200F41D4F /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55BF4D8204534ED00F41D4F /* Kingfisher.framework */; };
@@ -78,6 +76,7 @@
 		A51EF50720450D3200F712DA /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
 		A524DAFE204D06860006B6E4 /* AVPlayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerExtension.swift; sourceTree = "<group>"; };
 		A524DB00204D095B0006B6E4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A524DB01204D60B70006B6E4 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = SOURCE_ROOT; };
 		A55BF4D7204534ED00F41D4F /* Decodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Decodable.framework; path = Carthage/Build/iOS/Decodable.framework; sourceTree = SOURCE_ROOT; };
 		A55BF4D8204534ED00F41D4F /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = SOURCE_ROOT; };
 		A55BF4E220453FBC00F41D4F /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
@@ -99,9 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A55BF4DB204534F200F41D4F /* Decodable.framework in Frameworks */,
-				A55BF4DA204534ED00F41D4F /* Kingfisher.framework in Frameworks */,
 				A55BF4DD204534F200F41D4F /* Kingfisher.framework in Frameworks */,
-				A55BF4D9204534ED00F41D4F /* Decodable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +193,7 @@
 		A55BF4D6204534CA00F41D4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A524DB01204D60B70006B6E4 /* Hero.framework */,
 				A55BF4D7204534ED00F41D4F /* Decodable.framework */,
 				A55BF4D8204534ED00F41D4F /* Kingfisher.framework */,
 			);
