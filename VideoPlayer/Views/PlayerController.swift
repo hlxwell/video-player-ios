@@ -78,11 +78,18 @@ class PlayerController: UIView {
         } else {
             _player!.play()
             playAndPauseButton.setImage(UIImage(named: "PauseButton"), for: .normal)
+            
+            // Hide player controller after 1 seconds
+            UIView.animate(withDuration: 0.5, delay: 1, options: UIViewAnimationOptions.showHideTransitionViews, animations: {
+                self.alpha = 0
+            }, completion: { (isCompleted) in
+                self.removeFromSuperview()
+            })
         }
     }
 
     @IBAction func handleOnTap(_ sender: Any) {
-        alpha = 0.5
+        alpha = 1
         UIView.animate(withDuration: 0.5, animations: {
             self.alpha = 0
         }) { (isComplete) in
