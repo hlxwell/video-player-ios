@@ -4,5 +4,8 @@ build/
 # Ignore generated Carthage builds
 Carthage/Build
 
+# Ignore xcuserdata
+xcuserdata
+xcuserdata/*
 
 .DS_Store
