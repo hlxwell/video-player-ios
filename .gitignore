@@ -1,0 +1,8 @@
+# Ignore generated builds
+build/
+
+# Ignore generated Carthage builds
+Carthage/Build
+
+
+.DS_Store
