@@ -112,7 +112,7 @@ class PlayerViewController: UIViewController {
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             y = CGFloat(screenBounds.height)
         } else {
-            y = (self.navigationController?.navigationBar.frame.size.height)!
+            y = getNavbarHeight()
             y += UIApplication.shared.statusBarFrame.size.height
             y += videoHeight
 
@@ -130,11 +130,18 @@ class PlayerViewController: UIViewController {
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             y = CGFloat((screenBounds.height - videoHeight) / 2)
         } else {
-            y = (self.navigationController?.navigationBar.frame.size.height)!
+            y = getNavbarHeight()
             y += UIApplication.shared.statusBarFrame.size.height
         }
 
         return CGRect(x: 0, y: y, width: screenBounds.width, height: videoHeight)
+    }
+
+    private func getNavbarHeight() -> CGFloat {
+        guard (self.navigationController != nil) else {
+            return CGFloat(0)
+        }
+        return self.navigationController!.navigationBar.frame.size.height
     }
 }
 
