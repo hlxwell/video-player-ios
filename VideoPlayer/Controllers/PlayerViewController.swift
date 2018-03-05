@@ -56,23 +56,33 @@ class PlayerViewController: UIViewController {
 
     // Private Methods --------------------------------------------------------
 
+    @objc private func handlePlayerOnTap(recognizer: UITapGestureRecognizer) {
+        view.addSubview(_playerController)
+        _playerController.alpha = 0
+        UIView.animate(withDuration: 0.5) {
+            self._playerController.alpha = 0.5
+        }
+    }
+
     private func setupPlayerViews() -> Void {
         // Add player view
         let playerItem = CachingPlayerItem(url: URL(string: videoUrl)!)
         _player = AVPlayer(playerItem: playerItem)
         _playerLayer = AVPlayerLayer(player: _player)
         _playerLayer.videoGravity = .resize
-        _playerLayer.frame = getProperPlayerFrame()
         _playerLayer.backgroundColor = UIColor.black.cgColor
+        _playerLayer.frame = getProperPlayerFrame()
         _playerView = UIView()
         _playerView.layer.addSublayer(_playerLayer)
         view.addSubview(_playerView)
-        
+
+        // Add tap recognizer to show the player controller
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handlePlayerOnTap(recognizer:)))
+        _playerView.addGestureRecognizer(tapRecognizer)        
         _playerController = PlayerController.loadFromNibNamed(nibNamed: "PlayerController") as! PlayerController
         _playerController.frame = getProperPlayerFrame()
-        view.addSubview(_playerController) // on top of the player
     }
-
+    
     private func setupVideoInfo() -> Void {
         _videoInfoView = VideoInfo.loadFromNibNamed(nibNamed: "VideoInfo") as! VideoInfo
         _videoInfoView.frame = getScrollViewFrame()
@@ -117,4 +127,5 @@ class PlayerViewController: UIViewController {
         return CGRect(x: 0, y: y, width: screenBounds.width, height: videoHeight)
     }
 }
+
 
