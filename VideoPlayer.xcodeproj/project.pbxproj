@@ -117,6 +117,7 @@
 		A51EF4D02044E87900F712DA = {
 			isa = PBXGroup;
 			children = (
+				A524DB00204D095B0006B6E4 /* README.md */,
 				A55BF4D6204534CA00F41D4F /* Frameworks */,
 				A51EF4DB2044E87900F712DA /* VideoPlayer */,
 				A51EF4F02044E87900F712DA /* VideoPlayerTests */,
@@ -148,7 +149,6 @@
 				A51EF4DC2044E87900F712DA /* AppDelegate.swift */,
 				A55BF4E52045463200F41D4F /* Constants.swift */,
 				A51EF4E82044E87900F712DA /* Info.plist */,
-				A524DB00204D095B0006B6E4 /* README.md */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
