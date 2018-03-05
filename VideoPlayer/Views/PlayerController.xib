@@ -19,7 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view alpha="0.5" contentMode="scaleToFill" id="iN0-l3-epB" customClass="PlayerController" customModule="VideoPlayer">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PlayerController" customModule="VideoPlayer">
             <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -79,6 +79,8 @@
                         </label>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-4V-JCi">
                             <rect key="frame" x="8" y="354" width="720" height="31"/>
+                            <color key="minimumTrackTintColor" red="0.90375158629999996" green="0.47022852030000001" blue="0.3075291174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="thumbTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="progressChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="Igd-5E-8mO"/>
                             </connections>
@@ -90,6 +92,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Nsk-NE-4nr" secondAttribute="trailing" constant="10" id="0am-wc-NjG"/>
@@ -117,7 +120,6 @@
                     </connections>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="2WE-Ct-TnF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="IqJ-kt-ACq"/>
                 <constraint firstAttribute="bottom" secondItem="2WE-Ct-TnF" secondAttribute="bottom" id="V1V-tO-x46"/>
