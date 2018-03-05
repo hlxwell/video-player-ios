@@ -37,8 +37,10 @@ class PlayerViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        _playerLayer.frame = getProperPlayerFrame()
-        _playerController.frame = getProperPlayerFrame()
+        let videoFrame = getProperPlayerFrame()
+        _playerLayer.frame = videoFrame
+        _playerView.frame = CGRect(x: 0, y: 0, width: videoFrame.width, height: videoFrame.height + videoFrame.maxY)
+        _playerController.frame = videoFrame
         _videoInfoView.frame = getScrollViewFrame()
 
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
