@@ -67,7 +67,6 @@ extension VideoListViewController {
 }
 
 // MARK: Table view delegate
-// TODO: UIViewControllerAnimatedTransitioning
 extension VideoListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let video = videos[indexPath.row]
@@ -75,7 +74,7 @@ extension VideoListViewController {
         playerViewController.videoUrl = video.videoUrl
         playerViewController.videoTitle = video.title
         playerViewController.videoDesc = video.description
-        playerViewController.videoAuthor = video.presenterName // TODO rename all to presenter
+        playerViewController.videoAuthor = video.presenterName
         playerViewController.videoCoverUrl = video.thumbnailUrl
         
         playerViewController.transitioningDelegate = self
