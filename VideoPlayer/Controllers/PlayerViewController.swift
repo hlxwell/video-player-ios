@@ -55,6 +55,10 @@ class PlayerViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        _player.pause()
+    }
 
     // Private Methods --------------------------------------------------------
 
@@ -62,7 +66,7 @@ class PlayerViewController: UIViewController {
         view.addSubview(_playerController)
         _playerController.alpha = 0
         UIView.animate(withDuration: 0.5) {
-            self._playerController.alpha = 0.5
+            self._playerController.alpha = 1
         }
     }
 
@@ -85,7 +89,7 @@ class PlayerViewController: UIViewController {
         _playerController.frame = getProperPlayerFrame()
         view.addSubview(_playerController)
     }
-    
+
     private func setupVideoInfo() -> Void {
         _videoInfoView = VideoInfo.loadFromNibNamed(nibNamed: "VideoInfo") as! VideoInfo
         _videoInfoView.frame = getScrollViewFrame()
