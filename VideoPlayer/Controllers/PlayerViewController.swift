@@ -41,7 +41,7 @@ class PlayerViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let videoFrame = getProperPlayerFrame()
+        let videoFrame = getPlayerFrame()
         _playerLayer.frame = videoFrame
         _playerView.frame = CGRect(x: 0, y: 0, width: videoFrame.width, height: videoFrame.height + videoFrame.maxY)
         _playerController.frame = videoFrame
@@ -80,7 +80,7 @@ class PlayerViewController: UIViewController {
         _playerLayer = AVPlayerLayer(player: _player)
         _playerLayer.videoGravity = .resize
         _playerLayer.backgroundColor = UIColor.black.cgColor
-        _playerLayer.frame = getProperPlayerFrame()
+        _playerLayer.frame = getPlayerFrame()
         _playerView = UIView()
         _playerView.layer.addSublayer(_playerLayer)
         view.addSubview(_playerView)
@@ -89,7 +89,7 @@ class PlayerViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handlePlayerOnTap(recognizer:)))
         _playerView.addGestureRecognizer(tapRecognizer)        
         _playerController = PlayerController.loadFromNibNamed(nibNamed: "PlayerController") as! PlayerController
-        _playerController.frame = getProperPlayerFrame()
+        _playerController.frame = getPlayerFrame()
         view.addSubview(_playerController)
     }
 
@@ -105,22 +105,22 @@ class PlayerViewController: UIViewController {
     // ScrollView height = screen height - (video height + statusbar height + navbar height)
     private func getScrollViewFrame() -> CGRect {
         let screenBounds = UIScreen.main.bounds
-        var viewHeight: CGFloat = CGFloat(0)
         var y: CGFloat = CGFloat(0)
-        let height = screenBounds.width / CGFloat(Constants.videoPlayerRatio)
+        var height: CGFloat = CGFloat(0)
+        let videoHeight = screenBounds.width / CGFloat(Constants.videoPlayerRatio)
 
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             y = CGFloat(screenBounds.height) // off the screen, hide the video info.
         } else {
-            y = UIApplication.shared.statusBarFrame.size.height
-            y += height
-            viewHeight = screenBounds.height - y
+            y = CGFloat(UIScreen.main.statusBarHeight())
+            y += videoHeight
+            height = screenBounds.height - y
         }
-
-        return CGRect(x: 0, y: y, width: screenBounds.width, height: viewHeight)
+        return CGRect(x: 0, y: y, width: screenBounds.width, height: height)
     }
 
-    private func getProperPlayerFrame() -> CGRect {
+    
+    private func getPlayerFrame() -> CGRect {
         let screenBounds = UIScreen.main.bounds
         var x: CGFloat = CGFloat(0)
         var y: CGFloat = CGFloat(0)
