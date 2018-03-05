@@ -23,6 +23,10 @@ class PlayerViewController: UIViewController {
     private var _playerController: PlayerController!
     private var _videoInfoView: VideoInfo!
 
+    override var prefersStatusBarHidden: Bool {
+        return UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -55,10 +59,6 @@ class PlayerViewController: UIViewController {
         }
     }
 
-    override var prefersStatusBarHidden: Bool {
-        return UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         _player.pause()
     }
