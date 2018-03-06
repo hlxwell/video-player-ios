@@ -19,7 +19,7 @@ extension ZoomInTransition: UIViewControllerAnimatedTransitioning {
         let to = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
         let containerView = transitionContext.containerView
         containerView.insertSubview(to.view, belowSubview: from.view)
-        
+
         to.view.alpha = 0
         to.view.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
 

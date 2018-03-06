@@ -84,7 +84,7 @@ class PlayerController: UIView {
         } else {
             _player!.play()
             playAndPauseButton.setImage(UIImage(named: "PauseButton"), for: .normal)
-            
+
             // Hide player controller after 1 seconds
             UIView.animate(withDuration: 0.5, delay: 0.5, options: UIViewAnimationOptions.showHideTransitionViews, animations: {
                 self.alpha = 0
@@ -117,7 +117,7 @@ class PlayerController: UIView {
     }
 
     // Private Methods -----------------------------------------------------
-    
+
     private func updateProgressBar() -> Void {
         guard let duration = _player?.currentItem?.duration.seconds else { return }
         let currentTime = (_player?.currentTime().seconds)!

@@ -12,7 +12,7 @@ extension UIScreen {
     public func navbarHeight() -> Double {
         return UIDevice.current.isX() ? Double(88.0) : Double(64.0)
     }
-    
+
     public func statusBarHeight() -> Double {
         return Double(UIApplication.shared.statusBarFrame.size.height)
     }

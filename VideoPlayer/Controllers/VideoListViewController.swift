@@ -39,7 +39,7 @@ extension VideoListViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return videos.count;
     }
@@ -76,7 +76,7 @@ extension VideoListViewController {
         playerViewController.videoDesc = video.description
         playerViewController.videoAuthor = video.presenterName
         playerViewController.videoCoverUrl = video.thumbnailUrl
-        
+
         playerViewController.transitioningDelegate = self
         present(playerViewController, animated: true)
 

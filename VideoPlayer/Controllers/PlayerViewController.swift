@@ -87,7 +87,7 @@ class PlayerViewController: UIViewController {
 
         // Add tap recognizer to show the player controller
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handlePlayerOnTap(recognizer:)))
-        _playerView.addGestureRecognizer(tapRecognizer)        
+        _playerView.addGestureRecognizer(tapRecognizer)
         _playerController = PlayerController.loadFromNibNamed(nibNamed: "PlayerController") as! PlayerController
         _playerController.frame = getPlayerFrame()
         view.addSubview(_playerController)
@@ -119,7 +119,7 @@ class PlayerViewController: UIViewController {
         return CGRect(x: 0, y: y, width: screenBounds.width, height: height)
     }
 
-    
+
     private func getPlayerFrame() -> CGRect {
         let screenBounds = UIScreen.main.bounds
         var x: CGFloat = CGFloat(0)
