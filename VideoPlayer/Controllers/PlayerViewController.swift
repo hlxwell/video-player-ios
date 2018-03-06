@@ -38,10 +38,6 @@ class PlayerViewController: UIViewController {
         _playerController.titleLabel.text = videoTitle
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let videoFrame = getPlayerFrame()
