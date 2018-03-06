@@ -97,7 +97,13 @@ class PlayerViewController: UIViewController {
         view.addSubview(_videoInfoView)
     }
 
-    // ScrollView height = screen height - (video height + statusbar height + navbar height)
+    // Portrait Mode:
+    // `y = video height + statusbar height`
+    // `height = screen height - y`
+    //
+    // Landscape Mode:
+    // We need to hide it, so `y = screen height` that's enough
+    //
     private func getScrollViewFrame() -> CGRect {
         let screenBounds = UIScreen.main.bounds
         var y: CGFloat = CGFloat(0)
@@ -105,7 +111,7 @@ class PlayerViewController: UIViewController {
         let videoHeight = screenBounds.width / CGFloat(Constants.videoPlayerRatio)
 
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
-            y = CGFloat(screenBounds.height) // off the screen, hide the video info.
+            y = CGFloat(screenBounds.height)
         } else {
             y = CGFloat(UIScreen.main.statusBarHeight())
             y += videoHeight
@@ -114,6 +120,17 @@ class PlayerViewController: UIViewController {
         return CGRect(x: 0, y: y, width: screenBounds.width, height: height)
     }
 
+    // Portrait Mode:
+    // `y = statusbar height`
+    // `height = screen width / video size ratio`
+    //
+    // Landscape Mode:
+    // We only need to process for the iPhoneX, since iPhoneX is too wide:
+    // `((screen width - video width) / 2, 0, screen height * video size ratio, screen height)`
+    //
+    // other iPhone Screen:
+    // `(0, 0, screen width, screen width / video size ratio)`
+    //
     private func getPlayerFrame() -> CGRect {
         let screenBounds = UIScreen.main.bounds
         var x: CGFloat = CGFloat(0)
