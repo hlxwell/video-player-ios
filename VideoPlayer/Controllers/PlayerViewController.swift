@@ -73,7 +73,7 @@ class PlayerViewController: UIViewController {
         }
     }
 
-    private func setupPlayerViews() -> Void {
+    private func setupPlayerViews() {
         // Add player view
         let playerItem = CachingPlayerItem(url: URL(string: videoUrl)!)
         _player = AVPlayer(playerItem: playerItem)
@@ -93,7 +93,7 @@ class PlayerViewController: UIViewController {
         view.addSubview(_playerController)
     }
 
-    private func setupVideoInfo() -> Void {
+    private func setupVideoInfo() {
         _videoInfoView = VideoInfo.loadFromNibNamed(nibNamed: "VideoInfo") as! VideoInfo
         _videoInfoView.frame = getScrollViewFrame()
         _videoInfoView.titleLabel.text = videoTitle

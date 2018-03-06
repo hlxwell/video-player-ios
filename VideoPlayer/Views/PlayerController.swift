@@ -104,7 +104,7 @@ class PlayerController: UIView {
     }
 
     // Change interface according to different orientation.
-    public func updateInterfaceForOrientation() -> Void {
+    public func updateInterfaceForOrientation() {
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             titleLabel.alpha = 1
             closeButton.isHidden = true
@@ -118,13 +118,13 @@ class PlayerController: UIView {
 
     // Private Methods -----------------------------------------------------
 
-    private func updateProgressBar() -> Void {
+    private func updateProgressBar() {
         guard let duration = _player?.currentItem?.duration.seconds else { return }
         let currentTime = (_player?.currentTime().seconds)!
         progressSlider.value = Float(currentTime / duration)
     }
 
-    private func addTimeObserver() -> Void {
+    private func addTimeObserver() {
         let updateInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         _player?.addPeriodicTimeObserver(
             forInterval: updateInterval,

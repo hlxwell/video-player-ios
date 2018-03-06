@@ -22,7 +22,7 @@ class VideoListViewController: UITableViewController {
         self.loadData()
     }
 
-    func loadData() -> Void {
+    func loadData() {
         do {
             let path = Bundle.main.url(forResource: "video_data", withExtension: "json")!
             let data = try Data(contentsOf: path)
