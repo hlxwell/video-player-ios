@@ -9,8 +9,6 @@
 import UIKit
 import AVFoundation
 
-// TODO Add loading status: if player?.status == AVPlayerStatus.readyToPlay
-
 class PlayerController: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var playAndPauseButton: UIButton!
