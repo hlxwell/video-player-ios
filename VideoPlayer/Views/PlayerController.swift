@@ -115,20 +115,22 @@ class PlayerController: UIView {
 
     // Private Methods -----------------------------------------------------
 
+    // Update the progress bar according to the player current time.
     private func updateProgressBar() {
         guard let duration = _player?.currentItem?.duration.seconds else { return }
         let currentTime = (_player?.currentTime().seconds)!
         progressSlider.value = Float(currentTime / duration)
     }
 
+    // Add Time observer to the player, so we can show the time on the player.
     private func addTimeObserver() {
         let updateInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         _player?.addPeriodicTimeObserver(
             forInterval: updateInterval,
             queue: DispatchQueue.main,
-            using: {
-                [weak self] time in
+            using: { [weak self] time in
                 guard let currentItem = self?._player?.currentItem else { return }
+
                 let currentTime = Int((self?._player?.currentTime().seconds)! * 1000).convertToDisplayTime()
                 var duration: String = "00:00" // Default Value
                 if currentItem.duration.seconds > 0 {
