@@ -15,4 +15,15 @@ extension UIView {
             bundle: bundle
         ).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
+
+    var parentViewController: UIViewController? {
+        var parentResponder: UIResponder? = self
+        while parentResponder != nil {
+            parentResponder = parentResponder!.next
+            if let viewController = parentResponder as? UIViewController {
+                return viewController
+            }
+        }
+        return nil
+    }
 }

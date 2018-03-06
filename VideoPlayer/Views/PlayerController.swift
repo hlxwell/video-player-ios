@@ -17,7 +17,6 @@ class PlayerController: UIView {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
 
-    public weak var parentViewController: PlayerViewController!
     private weak var _player: AVPlayer?
 
     var player: AVPlayer {
@@ -34,7 +33,7 @@ class PlayerController: UIView {
     }
 
     @IBAction func close(_ sender: Any) {
-        parentViewController.dismiss(animated: true, completion: nil)
+        parentViewController?.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func progressChanged(_ sender: UISlider) {

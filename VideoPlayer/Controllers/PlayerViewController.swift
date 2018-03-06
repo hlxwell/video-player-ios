@@ -36,7 +36,6 @@ class PlayerViewController: UIViewController {
         // Pass player to player controller
         _playerController.player = _player
         _playerController.titleLabel.text = videoTitle
-        _playerController.parentViewController = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
