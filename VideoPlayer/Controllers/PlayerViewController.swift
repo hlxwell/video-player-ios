@@ -119,7 +119,6 @@ class PlayerViewController: UIViewController {
         return CGRect(x: 0, y: y, width: screenBounds.width, height: height)
     }
 
-
     private func getPlayerFrame() -> CGRect {
         let screenBounds = UIScreen.main.bounds
         var x: CGFloat = CGFloat(0)

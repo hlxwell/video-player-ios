@@ -211,7 +211,7 @@ open class CachingPlayerItem: AVPlayerItem {
 
         addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.new, context: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(playbackStalledHandler), name:NSNotification.Name.AVPlayerItemPlaybackStalled, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(playbackStalledHandler), name: NSNotification.Name.AVPlayerItemPlaybackStalled, object: self)
 
     }
 
@@ -236,13 +236,13 @@ open class CachingPlayerItem: AVPlayerItem {
 
         addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.new, context: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(playbackStalledHandler), name:NSNotification.Name.AVPlayerItemPlaybackStalled, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(playbackStalledHandler), name: NSNotification.Name.AVPlayerItemPlaybackStalled, object: self)
 
     }
 
     // MARK: KVO
 
-    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         delegate?.playerItemReadyToPlay?(self)
     }
 
@@ -265,4 +265,3 @@ open class CachingPlayerItem: AVPlayerItem {
     }
 
 }
-

@@ -37,11 +37,11 @@ class VideoListViewController: UITableViewController {
 // MARK: Table view data source
 extension VideoListViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1;
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videos.count;
+        return videos.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,4 +93,3 @@ extension VideoListViewController: UIViewControllerTransitioningDelegate {
         return ZoomOutTransition()
     }
 }
-
