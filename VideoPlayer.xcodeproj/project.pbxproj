@@ -38,6 +38,8 @@
 		A5B94AE0204FF5E10008A335 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B94ADF204FF5E10008A335 /* Reachability.framework */; };
 		A5B94AE1204FF5E50008A335 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B94ADF204FF5E10008A335 /* Reachability.framework */; };
 		A5B94AE2204FF5E50008A335 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5B94ADF204FF5E10008A335 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5B94AE5204FFD540008A335 /* screenshots1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A5B94AE3204FFD540008A335 /* screenshots1.PNG */; };
+		A5B94AE6204FFD540008A335 /* screenshots2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A5B94AE4204FFD540008A335 /* screenshots2.PNG */; };
 		A5DF76F2204FB85C00DA03EF /* diagram.mdj in Resources */ = {isa = PBXBuildFile; fileRef = A5DF76F1204FB85C00DA03EF /* diagram.mdj */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +103,8 @@
 		A55BF4F820483B6D00F41D4F /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A585430620498A130044AFE9 /* ZoomOutTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomOutTransition.swift; sourceTree = "<group>"; };
 		A5B94ADF204FF5E10008A335 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = SOURCE_ROOT; };
+		A5B94AE3204FFD540008A335 /* screenshots1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshots1.PNG; sourceTree = "<group>"; };
+		A5B94AE4204FFD540008A335 /* screenshots2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshots2.PNG; sourceTree = "<group>"; };
 		A5DF76F1204FB85C00DA03EF /* diagram.mdj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = diagram.mdj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +243,8 @@
 			children = (
 				A5DF76F1204FB85C00DA03EF /* diagram.mdj */,
 				A55BF4F72048361300F41D4F /* player_design.sketch */,
+				A5B94AE3204FFD540008A335 /* screenshots1.PNG */,
+				A5B94AE4204FFD540008A335 /* screenshots2.PNG */,
 				A51EF4E32044E87900F712DA /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -338,8 +344,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B94AE6204FFD540008A335 /* screenshots2.PNG in Resources */,
 				A55BF4F6204833FA00F41D4F /* VideoInfo.xib in Resources */,
 				A5DF76F2204FB85C00DA03EF /* diagram.mdj in Resources */,
+				A5B94AE5204FFD540008A335 /* screenshots1.PNG in Resources */,
 				A51EF4E72044E87900F712DA /* LaunchScreen.storyboard in Resources */,
 				A51EF50620450CCE00F712DA /* VideoListCell.xib in Resources */,
 				A55BF4F02047A0EF00F41D4F /* PlayerController.xib in Resources */,
