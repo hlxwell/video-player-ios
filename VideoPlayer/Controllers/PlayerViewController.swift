@@ -67,7 +67,7 @@ class PlayerViewController: UIViewController {
     // Private Methods --------------------------------------------------------
 
     @objc private func handlePlayerOnTap(recognizer: UITapGestureRecognizer) {
-        if _player.status == .readyToPlay {
+        if (_player.currentItem?.isPlaybackLikelyToKeepUp)! {
             view.addSubview(_playerController)
             _playerController.alpha = 0
             UIView.animate(withDuration: 0.5) {
