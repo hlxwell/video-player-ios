@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 class VideoListViewController: UITableViewController {
-    var videos: [Video] = []
+    private var _videos: [Video]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class VideoListViewController: UITableViewController {
             let path = Bundle.main.url(forResource: "video_data", withExtension: "json")!
             let data = try Data(contentsOf: path)
             let json = try JSONSerialization.jsonObject(with: data, options: [])
-            videos = try [Video].decode(json)
+            _videos = try [Video].decode(json)
         } catch {
             print(error.localizedDescription)
         }
@@ -41,12 +41,12 @@ extension VideoListViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videos.count
+        return _videos.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "videoListCell", for: indexPath) as! VideoListCell
-        let video = videos[indexPath.row]
+        let video = _videos[indexPath.row]
         let url = URL(string: video.thumbnailUrl)
         cell.author.text = video.presenterName
         cell.title.text = video.title
@@ -69,7 +69,7 @@ extension VideoListViewController {
 // MARK: Table view delegate
 extension VideoListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let video = videos[indexPath.row]
+        let video = _videos[indexPath.row]
         let playerViewController = PlayerViewController()
         playerViewController.videoUrl = video.videoUrl
         playerViewController.videoTitle = video.title
@@ -90,7 +90,8 @@ extension VideoListViewController: UIViewControllerTransitioningDelegate {
         return ZoomInTransition()
     }
 
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController)
+        -> UIViewControllerAnimatedTransitioning? {
         return ZoomOutTransition()
     }
 }
