@@ -40,7 +40,7 @@ class PlayerViewController: UIViewController {
         _playerController.player = _player
         _playerController.titleLabel.text = videoTitle
 
-        handleConnectivity()
+        showAlertForConnectivityIssue()
     }
 
     override func viewDidLayoutSubviews() {
@@ -188,7 +188,7 @@ extension PlayerViewController: CachingPlayerItemDelegate {
 }
 
 extension PlayerViewController {
-    func handleConnectivity() {
+    func showAlertForConnectivityIssue() {
         let reachability = Reachability()!
         reachability.whenUnreachable = { _ in
             let alert = UIAlertController(
