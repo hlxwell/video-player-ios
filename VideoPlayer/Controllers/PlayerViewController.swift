@@ -66,10 +66,12 @@ class PlayerViewController: UIViewController {
     // Private Methods --------------------------------------------------------
 
     @objc private func handlePlayerOnTap(recognizer: UITapGestureRecognizer) {
-        view.addSubview(_playerController)
-        _playerController.alpha = 0
-        UIView.animate(withDuration: 0.5) {
-            self._playerController.alpha = 1
+        if _player.status == .readyToPlay {
+            view.addSubview(_playerController)
+            _playerController.alpha = 0
+            UIView.animate(withDuration: 0.5) {
+                self._playerController.alpha = 1
+            }
         }
     }
 
