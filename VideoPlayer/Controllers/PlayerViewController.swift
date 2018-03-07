@@ -41,6 +41,7 @@ class PlayerViewController: UIViewController {
         _playerController.titleLabel.text = videoTitle
 
         showAlertForConnectivityIssue()
+        addTimeObserver()
     }
 
     override func viewDidLayoutSubviews() {
@@ -187,23 +188,26 @@ extension PlayerViewController: CachingPlayerItemDelegate {
     }
 }
 
+// Observers
 extension PlayerViewController {
-    func showAlertForConnectivityIssue() {
-        let reachability = Reachability()!
-        reachability.whenUnreachable = { _ in
-            let alert = UIAlertController(
-                title: "No network",
-                message: "You don't have network connection, so the app might not work for you.",
-                preferredStyle: UIAlertControllerStyle.alert
-            )
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+    // Add Time observer to the player, so we can show the time on the player.
+    private func addTimeObserver() {
+        let updateInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
 
-        do {
-            try reachability.startNotifier()
-        } catch {
-            print("Unable to start notifier")
-        }
+        _player?.addPeriodicTimeObserver(
+            forInterval: updateInterval,
+            queue: DispatchQueue.main,
+            using: { [weak self] time in
+                guard let currentItem = self?._player?.currentItem else { return }
+
+                let currentTime = Int((self?._player?.currentTime().seconds)! * 1000).convertToDisplayTime()
+                var duration: String = "00:00" // Default Value
+                if currentItem.duration.seconds > 0 {
+                    duration = Int(currentItem.duration.seconds * 1000).convertToDisplayTime()
+                }
+                self?._playerController.durationLabel.text = String(format: "%@ / %@", currentTime, duration)
+            }
+        )
+
     }
 }
