@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2WE-Ct-TnF">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2WE-Ct-TnF" userLabel="ButtonHolderView">
                     <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tN-NK-g7k">
@@ -41,6 +41,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="fnz-jJ-2cB" secondAttribute="height" multiplier="1:1" id="Jbz-tr-iqF"/>
                             </constraints>
+                            <color key="tintColor" red="0.98838141015136616" green="0.96403672843469412" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" image="PlayButton">
                                 <color key="titleColor" red="0.99502416910000002" green="1" blue="0.99484345559999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -77,10 +78,10 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-4V-JCi">
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-4V-JCi" customClass="LoadingIndicatorSlider" customModule="VideoPlayer">
                             <rect key="frame" x="8" y="354" width="720" height="31"/>
                             <color key="minimumTrackTintColor" red="0.90375158629999996" green="0.47022852030000001" blue="0.3075291174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="thumbTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="thumbTintColor" red="0.34024032360406087" green="0.34024032360406087" blue="0.34024032360406087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="progressChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="Igd-5E-8mO"/>
                             </connections>
@@ -92,7 +93,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.32619501082477231" green="0.3366315038071066" blue="0.33342490024010463" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Nsk-NE-4nr" secondAttribute="trailing" constant="10" id="0am-wc-NjG"/>
