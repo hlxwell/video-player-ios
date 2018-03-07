@@ -78,8 +78,7 @@ class PlayerViewController: UIViewController {
 
     private func setupPlayerViews() {
         // Add player view
-        let playerItem = CachingPlayerItem(url: URL(string: videoUrl)!)
-        playerItem.delegate = self
+        let playerItem: AVPlayerItem = AVPlayerItem(url: URL(string: videoUrl)!)
         _player = AVPlayer(playerItem: playerItem)
         _playerLayer = AVPlayerLayer(player: _player)
         _playerLayer.videoGravity = .resize
@@ -162,12 +161,10 @@ class PlayerViewController: UIViewController {
     private func addLoadingIndicator() {
         _loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         _loadingIndicator.hidesWhenStopped = true
-        let loadingIndicatorCenter: CGPoint = CGPoint(
+        _loadingIndicator.center = CGPoint(
             x: (getPlayerFrame().size.width / 2),
             y: (getPlayerFrame().origin.y + getPlayerFrame().size.height / 2)
         )
-        _loadingIndicator.center = loadingIndicatorCenter
-        _loadingIndicator.startAnimating()
         view.addSubview(_loadingIndicator)
     }
 
@@ -191,21 +188,6 @@ class PlayerViewController: UIViewController {
     }
 }
 
-extension PlayerViewController: CachingPlayerItemDelegate {
-    // Hide progress bar when the player is ready
-    func playerItemReadyToPlay(_ playerItem: CachingPlayerItem) {
-        _loadingIndicator.stopAnimating()
-        view.addSubview(_playerController)
-    }
-
-    // Show progress bar when the player is stalled
-    func playerItemPlaybackStalled(_ playerItem: CachingPlayerItem) {
-        _loadingIndicator.startAnimating()
-        _playerController.removeFromSuperview()
-    }
-}
-
-// Observers
 extension PlayerViewController {
     // Add Time observer to the player, so we can show the time on the player.
     private func addTimeObserver() {
@@ -223,6 +205,15 @@ extension PlayerViewController {
                     duration = Int(currentItem.duration.seconds * 1000).convertToDisplayTime()
                 }
                 self?._playerController.durationLabel.text = String(format: "%@ / %@", currentTime, duration)
+
+                /////////////////////////////////////////
+                if currentItem.isPlaybackLikelyToKeepUp {
+                    self?._loadingIndicator.stopAnimating()
+                    self?.view.addSubview((self?._playerController)!)
+                } else {
+                    self?._loadingIndicator.startAnimating()
+                    self?._playerController.removeFromSuperview()
+                }
             }
         )
 

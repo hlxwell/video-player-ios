@@ -28,7 +28,6 @@
 		A55BF4E320453FBC00F41D4F /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BF4E220453FBC00F41D4F /* Video.swift */; };
 		A55BF4E62045463200F41D4F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BF4E52045463200F41D4F /* Constants.swift */; };
 		A55BF4EC20466DE900F41D4F /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BF4EB20466DE900F41D4F /* IntExtension.swift */; };
-		A55BF4EE2046BB2300F41D4F /* CachingPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BF4ED2046BB2300F41D4F /* CachingPlayerItem.swift */; };
 		A55BF4F02047A0EF00F41D4F /* PlayerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A55BF4EF2047A0EF00F41D4F /* PlayerController.xib */; };
 		A55BF4F22047A0FD00F41D4F /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BF4F12047A0FD00F41D4F /* PlayerController.swift */; };
 		A55BF4F4204833EE00F41D4F /* VideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BF4F3204833EE00F41D4F /* VideoInfo.swift */; };
@@ -90,7 +89,6 @@
 		A55BF4E220453FBC00F41D4F /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		A55BF4E52045463200F41D4F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A55BF4EB20466DE900F41D4F /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
-		A55BF4ED2046BB2300F41D4F /* CachingPlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingPlayerItem.swift; sourceTree = "<group>"; };
 		A55BF4EF2047A0EF00F41D4F /* PlayerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerController.xib; sourceTree = "<group>"; };
 		A55BF4F12047A0FD00F41D4F /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		A55BF4F3204833EE00F41D4F /* VideoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfo.swift; sourceTree = "<group>"; };
@@ -248,7 +246,6 @@
 		A5854305204989DB0044AFE9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				A55BF4ED2046BB2300F41D4F /* CachingPlayerItem.swift */,
 				A585430620498A130044AFE9 /* ZoomOutTransition.swift */,
 				A524DB05204D770C0006B6E4 /* ZoomInTransition.swift */,
 			);
@@ -369,7 +366,6 @@
 				A55BF4F920483B6D00F41D4F /* UIViewExtension.swift in Sources */,
 				A55BF4F22047A0FD00F41D4F /* PlayerController.swift in Sources */,
 				A51EF50820450D3200F712DA /* VideoListCell.swift in Sources */,
-				A55BF4EE2046BB2300F41D4F /* CachingPlayerItem.swift in Sources */,
 				A524DB06204D770C0006B6E4 /* ZoomInTransition.swift in Sources */,
 				A51EF4FD2044E8D800F712DA /* PlayerViewController.swift in Sources */,
 				A51EF4FF2044E8FE00F712DA /* VideoListViewController.swift in Sources */,
