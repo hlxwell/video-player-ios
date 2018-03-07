@@ -22,6 +22,7 @@ class PlayerViewController: UIViewController {
     private var _playerView: UIView!
     private var _playerController: PlayerController!
     private var _videoInfoView: VideoInfo!
+    private var _loadingIndicator: UIActivityIndicatorView!
 
     override var prefersStatusBarHidden: Bool {
         return UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight
@@ -29,9 +30,10 @@ class PlayerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.black
         setupPlayerViews()
         setupVideoInfo()
+        addLoadingIndicator()
 
         // Pass player to player controller
         _playerController.player = _player
@@ -71,6 +73,7 @@ class PlayerViewController: UIViewController {
     private func setupPlayerViews() {
         // Add player view
         let playerItem = CachingPlayerItem(url: URL(string: videoUrl)!)
+        playerItem.delegate = self
         _player = AVPlayer(playerItem: playerItem)
         _playerLayer = AVPlayerLayer(player: _player)
         _playerLayer.videoGravity = .resize
@@ -85,7 +88,6 @@ class PlayerViewController: UIViewController {
         _playerView.addGestureRecognizer(tapRecognizer)
         _playerController = PlayerController.loadFromNibNamed(nibNamed: "PlayerController") as! PlayerController
         _playerController.frame = getPlayerFrame()
-        view.addSubview(_playerController)
     }
 
     private func setupVideoInfo() {
@@ -149,5 +151,33 @@ class PlayerViewController: UIViewController {
         }
 
         return CGRect(x: x, y: y, width: width, height: height)
+    }
+
+    // Private Methods ------------------------------------------
+
+    private func addLoadingIndicator() {
+        _loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        _loadingIndicator.hidesWhenStopped = true
+        let loadingIndicatorCenter: CGPoint = CGPoint(
+            x: (getPlayerFrame().size.width / 2),
+            y: (getPlayerFrame().origin.y + getPlayerFrame().size.height / 2)
+        )
+        _loadingIndicator.center = loadingIndicatorCenter
+        _loadingIndicator.startAnimating()
+        view.addSubview(_loadingIndicator)
+    }
+}
+
+extension PlayerViewController: CachingPlayerItemDelegate {
+    // Hide progress bar when the player is ready
+    func playerItemReadyToPlay(_ playerItem: CachingPlayerItem) {
+        _loadingIndicator.stopAnimating()
+        view.addSubview(_playerController)
+    }
+
+    // Show progress bar when the player is stalled
+    func playerItemPlaybackStalled(_ playerItem: CachingPlayerItem) {
+        _loadingIndicator.startAnimating()
+        _playerController.removeFromSuperview()
     }
 }
