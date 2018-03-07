@@ -1,2 +1,3 @@
 github "Anviking/Decodable" "edc8c2d89c517d2556fa8408278d646957bbece9"
+github "ashleymills/Reachability.swift" "v4.1.0"
 github "onevcat/Kingfisher" "3.13.1"
