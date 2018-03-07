@@ -49,6 +49,9 @@ class PlayerController: UIView {
                 let currentTime = Double(sender.value) * duration.seconds
                 self?._player?.seek(to: CMTimeMake(Int64(currentTime * 1000), 1000))
             }
+        } else {
+            let currentTime = Double(sender.value) * duration.seconds
+            self._player?.seek(to: CMTimeMake(Int64(currentTime * 1000), 1000))
         }
     }
 
