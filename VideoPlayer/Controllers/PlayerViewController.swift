@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Kingfisher
+import Reachability
 
 class PlayerViewController: UIViewController {
     var videoUrl: String!
@@ -30,7 +31,7 @@ class PlayerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.white
         setupPlayerViews()
         setupVideoInfo()
         addLoadingIndicator()
@@ -38,6 +39,8 @@ class PlayerViewController: UIViewController {
         // Pass player to player controller
         _playerController.player = _player
         _playerController.titleLabel.text = videoTitle
+
+        handleConnectivity()
     }
 
     override func viewDidLayoutSubviews() {
@@ -179,5 +182,26 @@ extension PlayerViewController: CachingPlayerItemDelegate {
     func playerItemPlaybackStalled(_ playerItem: CachingPlayerItem) {
         _loadingIndicator.startAnimating()
         _playerController.removeFromSuperview()
+    }
+}
+
+extension PlayerViewController {
+    func handleConnectivity() {
+        let reachability = Reachability()!
+        reachability.whenUnreachable = { _ in
+            let alert = UIAlertController(
+                title: "No network",
+                message: "You don't have network connection, so the app might not work for you.",
+                preferredStyle: UIAlertControllerStyle.alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
     }
 }
