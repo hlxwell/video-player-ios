@@ -47,7 +47,6 @@ class PlayerController: UIView {
         if #available(iOS 10.0, *) {
             _progressUpdateDalayTimer?.invalidate()
             _progressUpdateDalayTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] timer in
-                print("updated...")
                 let currentTime = Double(sender.value) * duration.seconds
                 self?._player?.seek(to: CMTimeMake(Int64(currentTime * 1000), 1000))
             }
