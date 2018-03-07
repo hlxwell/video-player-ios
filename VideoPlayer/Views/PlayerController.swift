@@ -30,6 +30,10 @@ class PlayerController: UIView {
     }
 
     override func awakeFromNib() {
+        // Customize UI a little bit
+        let progressBarIconImage = UIImage(named: "ProgressBarIcon")
+        progressSlider.setThumbImage(progressBarIconImage, for: .normal)
+        progressSlider.setThumbImage(progressBarIconImage, for: .highlighted)
     }
 
     @IBAction func close(_ sender: Any) {
