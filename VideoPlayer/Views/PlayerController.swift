@@ -18,6 +18,7 @@ class PlayerController: UIView {
     @IBOutlet weak var closeButton: UIButton!
 
     private weak var _player: AVPlayer?
+    private var _progressUpdateDalayTimer: Timer?
 
     var player: AVPlayer {
         get {
@@ -43,8 +44,14 @@ class PlayerController: UIView {
     @IBAction func progressChanged(_ sender: UISlider) {
         guard let duration = _player?.currentItem?.duration else { return }
 
-        let currentTime = Double(sender.value) * duration.seconds
-        _player?.seek(to: CMTimeMake(Int64(currentTime * 1000), 1000))
+        if #available(iOS 10.0, *) {
+            _progressUpdateDalayTimer?.invalidate()
+            _progressUpdateDalayTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] timer in
+                print("updated...")
+                let currentTime = Double(sender.value) * duration.seconds
+                self?._player?.seek(to: CMTimeMake(Int64(currentTime * 1000), 1000))
+            }
+        }
     }
 
     @IBAction func fullscreen(_ sender: Any) {
@@ -82,7 +89,7 @@ class PlayerController: UIView {
         if _player!.isPlaying {
             _player!.pause()
             playAndPauseButton.setImage(UIImage(named: "PlayButton"), for: .normal)
-        } else {
+        } else if _player?.status == AVPlayerStatus.readyToPlay {
             _player!.play()
             playAndPauseButton.setImage(UIImage(named: "PauseButton"), for: .normal)
 
