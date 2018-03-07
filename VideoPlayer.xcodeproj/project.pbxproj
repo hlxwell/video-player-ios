@@ -35,6 +35,7 @@
 		A55BF4F6204833FA00F41D4F /* VideoInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = A55BF4F5204833FA00F41D4F /* VideoInfo.xib */; };
 		A55BF4F920483B6D00F41D4F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BF4F820483B6D00F41D4F /* UIViewExtension.swift */; };
 		A585430720498A130044AFE9 /* ZoomOutTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A585430620498A130044AFE9 /* ZoomOutTransition.swift */; };
+		A5DF76F2204FB85C00DA03EF /* diagram.mdj in Resources */ = {isa = PBXBuildFile; fileRef = A5DF76F1204FB85C00DA03EF /* diagram.mdj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +80,6 @@
 		A51EF50720450D3200F712DA /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
 		A524DAFE204D06860006B6E4 /* AVPlayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerExtension.swift; sourceTree = "<group>"; };
 		A524DB00204D095B0006B6E4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A524DB01204D60B70006B6E4 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = SOURCE_ROOT; };
 		A524DB05204D770C0006B6E4 /* ZoomInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInTransition.swift; sourceTree = "<group>"; };
 		A550B3D3204D95BF001E5691 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		A550B3D5204D9750001E5691 /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
@@ -96,6 +96,7 @@
 		A55BF4F72048361300F41D4F /* player_design.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = player_design.sketch; sourceTree = "<group>"; };
 		A55BF4F820483B6D00F41D4F /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A585430620498A130044AFE9 /* ZoomOutTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomOutTransition.swift; sourceTree = "<group>"; };
+		A5DF76F1204FB85C00DA03EF /* diagram.mdj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = diagram.mdj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +200,6 @@
 		A55BF4D6204534CA00F41D4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A524DB01204D60B70006B6E4 /* Hero.framework */,
 				A55BF4D7204534ED00F41D4F /* Decodable.framework */,
 				A55BF4D8204534ED00F41D4F /* Kingfisher.framework */,
 			);
@@ -229,6 +229,7 @@
 		A55BF4E42045402300F41D4F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A5DF76F1204FB85C00DA03EF /* diagram.mdj */,
 				A55BF4F72048361300F41D4F /* player_design.sketch */,
 				A51EF4E32044E87900F712DA /* Assets.xcassets */,
 			);
@@ -330,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A55BF4F6204833FA00F41D4F /* VideoInfo.xib in Resources */,
+				A5DF76F2204FB85C00DA03EF /* diagram.mdj in Resources */,
 				A51EF4E72044E87900F712DA /* LaunchScreen.storyboard in Resources */,
 				A51EF50620450CCE00F712DA /* VideoListCell.xib in Resources */,
 				A55BF4F02047A0EF00F41D4F /* PlayerController.xib in Resources */,
