@@ -36,11 +36,7 @@
 		A55BF4F920483B6D00F41D4F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BF4F820483B6D00F41D4F /* UIViewExtension.swift */; };
 		A585430720498A130044AFE9 /* ZoomOutTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A585430620498A130044AFE9 /* ZoomOutTransition.swift */; };
 		A5B94AE0204FF5E10008A335 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B94ADF204FF5E10008A335 /* Reachability.framework */; };
-		A5B94AE1204FF5E50008A335 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B94ADF204FF5E10008A335 /* Reachability.framework */; };
 		A5B94AE2204FF5E50008A335 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5B94ADF204FF5E10008A335 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A5B94AE5204FFD540008A335 /* screenshots1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A5B94AE3204FFD540008A335 /* screenshots1.PNG */; };
-		A5B94AE6204FFD540008A335 /* screenshots2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A5B94AE4204FFD540008A335 /* screenshots2.PNG */; };
-		A5DF76F2204FB85C00DA03EF /* diagram.mdj in Resources */ = {isa = PBXBuildFile; fileRef = A5DF76F1204FB85C00DA03EF /* diagram.mdj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +112,6 @@
 				A55BF4DB204534F200F41D4F /* Decodable.framework in Frameworks */,
 				A5B94AE0204FF5E10008A335 /* Reachability.framework in Frameworks */,
 				A55BF4DD204534F200F41D4F /* Kingfisher.framework in Frameworks */,
-				A5B94AE1204FF5E50008A335 /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,10 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5B94AE6204FFD540008A335 /* screenshots2.PNG in Resources */,
 				A55BF4F6204833FA00F41D4F /* VideoInfo.xib in Resources */,
-				A5DF76F2204FB85C00DA03EF /* diagram.mdj in Resources */,
-				A5B94AE5204FFD540008A335 /* screenshots1.PNG in Resources */,
 				A51EF4E72044E87900F712DA /* LaunchScreen.storyboard in Resources */,
 				A51EF50620450CCE00F712DA /* VideoListCell.xib in Resources */,
 				A55BF4F02047A0EF00F41D4F /* PlayerController.xib in Resources */,
