@@ -159,8 +159,6 @@ class PlayerViewController: UIViewController {
         return CGRect(x: x, y: y, width: width, height: height)
     }
 
-    // Private Methods ------------------------------------------
-
     private func addLoadingIndicator() {
         _loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         _loadingIndicator.hidesWhenStopped = true
@@ -171,6 +169,25 @@ class PlayerViewController: UIViewController {
         _loadingIndicator.center = loadingIndicatorCenter
         _loadingIndicator.startAnimating()
         view.addSubview(_loadingIndicator)
+    }
+
+    private func showAlertForConnectivityIssue() {
+        let reachability = Reachability()!
+        reachability.whenUnreachable = { _ in
+            let alert = UIAlertController(
+                title: "No network",
+                message: "You don't have network connection, so the app might not work for you.",
+                preferredStyle: UIAlertControllerStyle.alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
     }
 }
 
