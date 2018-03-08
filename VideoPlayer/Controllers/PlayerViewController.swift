@@ -18,6 +18,7 @@ class PlayerViewController: UIViewController {
     var videoAuthor: String!
     var videoCoverUrl: String!
 
+    // MARK: Privates
     private var _playerObserver: Any?
     private var _player: AVPlayer!
     private var _playerLayer: AVPlayerLayer!
@@ -26,14 +27,9 @@ class PlayerViewController: UIViewController {
     private var _videoInfoView: VideoInfo!
     private var _loadingIndicator: UIActivityIndicatorView!
 
+    // MARK: Overrides
     override var prefersStatusBarHidden: Bool {
         return UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight
-    }
-
-    deinit {
-        if _playerObserver != nil {
-            _player?.removeTimeObserver(_playerObserver!)
-        }
     }
 
     override func viewDidLoad() {
@@ -70,7 +66,13 @@ class PlayerViewController: UIViewController {
         _player.pause()
     }
 
-    // Private Methods --------------------------------------------------------
+    deinit {
+        if _playerObserver != nil {
+            _player?.removeTimeObserver(_playerObserver!)
+        }
+    }
+
+    // MARK: Private Methods
 
     @objc private func handlePlayerOnTap(recognizer: UITapGestureRecognizer) {
         if (_player.currentItem?.isPlaybackLikelyToKeepUp)! {

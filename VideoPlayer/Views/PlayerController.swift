@@ -17,17 +17,8 @@ class PlayerController: UIView {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
 
-    private weak var _player: AVPlayer?
+    public weak var _player: AVPlayer?
     private var _progressUpdateDalayTimer: Timer?
-
-    var player: AVPlayer {
-        get {
-            return _player!
-        }
-        set {
-            _player = newValue
-        }
-    }
 
     override func awakeFromNib() {
         // Customize UI a little bit
