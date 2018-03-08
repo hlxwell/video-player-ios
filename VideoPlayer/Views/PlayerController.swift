@@ -17,7 +17,7 @@ class PlayerController: UIView {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
 
-    public weak var _player: AVPlayer?
+    public weak var player: AVPlayer?
     private var _progressUpdateDalayTimer: Timer?
 
     override func awakeFromNib() {
@@ -47,17 +47,17 @@ class PlayerController: UIView {
     }
 
     @IBAction func progressChanged(_ sender: UISlider) {
-        guard let duration = _player?.currentItem?.duration else { return }
+        guard let duration = player?.currentItem?.duration else { return }
 
         if #available(iOS 10.0, *) {
             _progressUpdateDalayTimer?.invalidate()
             _progressUpdateDalayTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] timer in
                 let currentTime = Double(sender.value) * duration.seconds
-                self?._player?.seek(to: CMTimeMake(Int64(currentTime * 1000), 1000))
+                self?.player?.seek(to: CMTimeMake(Int64(currentTime * 1000), 1000))
             }
         } else {
             let currentTime = Double(sender.value) * duration.seconds
-            self._player?.seek(to: CMTimeMake(Int64(currentTime * 1000), 1000))
+            self.player?.seek(to: CMTimeMake(Int64(currentTime * 1000), 1000))
         }
     }
 
@@ -74,30 +74,30 @@ class PlayerController: UIView {
     }
 
     @IBAction func rewind(_ sender: Any) {
-        let currentTime = CMTimeGetSeconds((_player?.currentTime())!)
+        let currentTime = CMTimeGetSeconds((player?.currentTime())!)
         var newTime = currentTime - 5.0
         if newTime < 0 { newTime = 0 }
-        _player?.seek(to: CMTimeMake(Int64(newTime * 1000), 1000))
+        player?.seek(to: CMTimeMake(Int64(newTime * 1000), 1000))
         updateProgressBar()
     }
 
     @IBAction func forward(_ sender: Any) {
-        guard let duration = _player?.currentItem?.duration else { return }
+        guard let duration = player?.currentItem?.duration else { return }
 
-        let currentTime = CMTimeGetSeconds((_player?.currentTime())!)
+        let currentTime = CMTimeGetSeconds((player?.currentTime())!)
         let newTime = currentTime + 5.0
         if newTime <= CMTimeGetSeconds(duration) {
-            _player?.seek(to: CMTimeMake(Int64(newTime * 1000), 1000))
+            player?.seek(to: CMTimeMake(Int64(newTime * 1000), 1000))
         }
         updateProgressBar()
     }
 
     @IBAction func playAndPause(_ sender: Any) {
-        if _player!.isPlaying {
-            _player!.pause()
+        if player!.isPlaying {
+            player!.pause()
             playAndPauseButton.setImage(UIImage(named: "PlayButton"), for: .normal)
-        } else if _player?.status == AVPlayerStatus.readyToPlay {
-            _player!.play()
+        } else if player?.status == AVPlayerStatus.readyToPlay {
+            player!.play()
             playAndPauseButton.setImage(UIImage(named: "PauseButton"), for: .normal)
 
             // Hide player controller after 1 seconds
@@ -122,8 +122,8 @@ class PlayerController: UIView {
 
     // Update the progress bar according to the player current time.
     private func updateProgressBar() {
-        guard let duration = _player?.currentItem?.duration.seconds else { return }
-        let currentTime = (_player?.currentTime().seconds)!
+        guard let duration = player?.currentItem?.duration.seconds else { return }
+        let currentTime = (player?.currentTime().seconds)!
         progressSlider.value = Float(currentTime / duration)
     }
 }
