@@ -27,6 +27,21 @@ class PlayerController: UIView {
         progressSlider.setThumbImage(progressBarIconImage, for: .highlighted)
     }
 
+    // Change interface according to different orientation.
+    public func updateInterfaceForOrientation() {
+        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+            titleLabel.alpha = 1
+            closeButton.isHidden = true
+            maxMinButton.setImage(UIImage(named: "NormalScreenButton"), for: .normal)
+        } else {
+            titleLabel.alpha = 0
+            closeButton.isHidden = false
+            maxMinButton.setImage(UIImage(named: "FullScreenButton"), for: .normal)
+        }
+    }
+
+    // MARK: IBActions
+
     @IBAction func close(_ sender: Any) {
         parentViewController?.dismiss(animated: true, completion: nil)
     }
@@ -103,20 +118,7 @@ class PlayerController: UIView {
         }
     }
 
-    // Change interface according to different orientation.
-    public func updateInterfaceForOrientation() {
-        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
-            titleLabel.alpha = 1
-            closeButton.isHidden = true
-            maxMinButton.setImage(UIImage(named: "NormalScreenButton"), for: .normal)
-        } else {
-            titleLabel.alpha = 0
-            closeButton.isHidden = false
-            maxMinButton.setImage(UIImage(named: "FullScreenButton"), for: .normal)
-        }
-    }
-
-    // Private Methods -----------------------------------------------------
+    // MARK: Private Methods
 
     // Update the progress bar according to the player current time.
     private func updateProgressBar() {
