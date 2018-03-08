@@ -192,9 +192,7 @@ class PlayerViewController: UIViewController {
             print("Unable to start notifier")
         }
     }
-}
 
-extension PlayerViewController {
     // Add Time observer to the player, so we can show the time on the player.
     private func addTimeObserver() {
         let updateInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
@@ -222,6 +220,5 @@ extension PlayerViewController {
                 }
             }
         )
-
     }
 }
