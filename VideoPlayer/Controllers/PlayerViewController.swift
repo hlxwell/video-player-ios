@@ -18,6 +18,7 @@ class PlayerViewController: UIViewController {
     var videoAuthor: String!
     var videoCoverUrl: String!
 
+    private var _playerObserver: Any?
     private var _player: AVPlayer!
     private var _playerLayer: AVPlayerLayer!
     private var _playerView: UIView!
@@ -29,19 +30,24 @@ class PlayerViewController: UIViewController {
         return UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight
     }
 
+    deinit {
+        if _playerObserver != nil {
+            _player?.removeTimeObserver(_playerObserver!)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         setupPlayerViews()
         setupVideoInfo()
         addLoadingIndicator()
+        showAlertForConnectivityIssue()
+        addTimeObserver()
 
         // Pass player to player controller
         _playerController.player = _player
         _playerController.titleLabel.text = videoTitle
-
-        showAlertForConnectivityIssue()
-        addTimeObserver()
     }
 
     override func viewDidLayoutSubviews() {
@@ -193,7 +199,7 @@ extension PlayerViewController {
     private func addTimeObserver() {
         let updateInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
 
-        _player?.addPeriodicTimeObserver(
+        _playerObserver = _player?.addPeriodicTimeObserver(
             forInterval: updateInterval,
             queue: DispatchQueue.main,
             using: { [weak self] time in
@@ -206,7 +212,7 @@ extension PlayerViewController {
                 }
                 self?._playerController.durationLabel.text = String(format: "%@ / %@", currentTime, duration)
 
-                /////////////////////////////////////////
+                /// When player is stalling: Hide Player Controller && Show Loading Indicator ---------------------------
                 if currentItem.isPlaybackLikelyToKeepUp {
                     self?._loadingIndicator.stopAnimating()
                     self?.view.addSubview((self?._playerController)!)
